@@ -31,7 +31,6 @@ class Parser:
 		return '\n'.join(extracted)
 
 	def extract_properties(self):
-		print("====")
 		company_name = next((l for l in self.lines if ('株式会社' in l)), None)
 
 		# url
@@ -72,7 +71,6 @@ def output_csv(properties_list):
 		file.write(",".join(columns) + "\n")
 		for properties in properties_list:
 			values = []
-			print(properties)
 			for c in columns:
 				values.append(f"\"{properties[c]}\"")
 			file.write(f"{','.join(values)}\n")
